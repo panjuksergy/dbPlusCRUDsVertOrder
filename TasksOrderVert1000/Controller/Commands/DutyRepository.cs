@@ -45,6 +45,16 @@ namespace TasksOrderVert1000.Repository
             }
         }
 
+        public void UpdateDoneStatus(int id)
+        {
+            var existingDuty = _context.Tasks.FirstOrDefault(d => d.DutyId == id);
+            if (existingDuty != null)
+            {
+                existingDuty.IsCompleted = true;
+                _context.SaveChanges();
+            }
+        }
+
         public void DeleteDuty(int id)
         {
             var duty = _context.Tasks.FirstOrDefault(d => d.DutyId == id);

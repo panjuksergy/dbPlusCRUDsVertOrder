@@ -9,4 +9,5 @@ public class Duty
     public string Description { get; set; }
     public DateTime Date { get; set; }
     public int Priority { get; set; }
+    public bool IsCompleted { get; set; }
 }

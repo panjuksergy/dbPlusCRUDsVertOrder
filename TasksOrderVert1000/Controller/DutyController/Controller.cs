@@ -50,7 +50,7 @@ public class Controller
     public int ValidatePriorityView()
     {
         int input = _view.ChooseTasksPriority();
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i <= 10; i++)
         {
             if (input == i)
             {

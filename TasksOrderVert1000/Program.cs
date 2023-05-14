@@ -30,8 +30,13 @@ public class Program
                         _dispatcher.DisplayTaskById();
                         break;
                     case 6:
+                        _dispatcher.UpdateDoneStatus();
+                        break;
+                    case 7:
+                        System.Environment.Exit(1);
                         break;
                     default:
+                        Console.WriteLine("Error Input, Try again");
                         break;
                 }
             }

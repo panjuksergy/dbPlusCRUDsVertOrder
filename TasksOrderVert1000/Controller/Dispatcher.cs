@@ -44,6 +44,20 @@ public class Dispatcher
         }
     }
 
+    public void UpdateDoneStatus()
+    {
+        var id = _view.ChooseTasksId();
+        if (_dutyRepository.GetDuty(id) != null)
+        {
+            _dutyRepository.UpdateDoneStatus(id);
+        }
+        else
+        {
+            Console.WriteLine("Task doesnt exist, try again");
+            UpdateDoneStatus();
+        }
+    }
+
     public void DeleteTask()
     {
         var id = _view.ChooseTasksId();

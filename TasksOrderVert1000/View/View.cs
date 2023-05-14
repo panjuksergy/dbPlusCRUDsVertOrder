@@ -6,14 +6,15 @@ public class View
 {
     public int DisplayMainMenu()
     {
-        Console.WriteLine("Hello>. .<, this is Task Planner.\n" +
+        Console.WriteLine("\nHello>. .<, this is Task Planner.\n" +
                           "Choose action which u want to do:\n" +
                           "1-Create new Task\n" +
                           "2-Update existing Task\n" +
                           "3-Delete existing Task\n" +
                           "4-Check all Tasks\n" +
                           "5-Display task by id\n" +
-                          "6-Mark task done by id");
+                          "6-Mark task done by id\n" +
+                          "7-Exit");
         var choosed = Console.ReadLine();
         int ch;
         bool check = false;
@@ -62,7 +63,8 @@ public class View
                           $"Task Name - {duty.DutyName}\n" +
                           $"Task Description - {duty.Description}\n" +
                           $"Task Date - {duty.Date}\n" +
-                          $"Task Priority - {duty.Priority}\n//////////////////////////////////////////////\n");
+                          $"Task Priority - {duty.Priority}\n//////////////////////////////////////////////\n" +
+                          $"Task Done Status = {duty.IsCompleted.ToString()}");
     }
 
     public int SuggestSorting()
