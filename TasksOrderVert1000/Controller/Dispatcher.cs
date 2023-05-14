@@ -46,7 +46,13 @@ public class Dispatcher
 
     public void DisplayTaskById()
     {
-        
+        var id = _controller.ValidateId(_view.ChooseTasksId());
+        if (id == -404)
+        {
+            Console.WriteLine("Error Input");
+            DisplayTaskById();
+        }
+        _view.DisplayTask(_dutyRepository.GetDuty(id));
     }
 
     public void MarkTaskDonteById()

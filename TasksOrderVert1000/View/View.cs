@@ -1,3 +1,5 @@
+using TasksOrderVert1000.Model;
+
 namespace TasksOrderVert1000.View;
 
 public class View
@@ -53,4 +55,14 @@ public class View
             return ch;
         }
     }
+
+    public void DisplayTask(Duty duty)
+    {
+        Console.WriteLine($"\n//////////////////////////////////////////////\nTask ID - {duty.DutyId}\n" +
+                          $"Task Name - {duty.DutyName}\n" +
+                          $"Task Description - {duty.Description}\n" +
+                          $"Task Date - {duty.Date}\n" +
+                          $"Task Priority - {duty.Priority}\n//////////////////////////////////////////////\n");
+    }
+    
 }

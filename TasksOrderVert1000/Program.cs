@@ -24,6 +24,7 @@ public class Program
                     case 4:
                         break;
                     case 5:
+                        _dispatcher.DisplayTaskById();
                         break;
                     case 6:
                         break;

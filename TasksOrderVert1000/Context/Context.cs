@@ -15,7 +15,7 @@ public class Context : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
-        optionsBuilder.UseSqlite($"Data Source=DutiesDB.db").LogTo(Console.WriteLine);
+        optionsBuilder.UseSqlite($"Data Source=DutiesDB.db");//.LogTo(Console.WriteLine);
         SQLitePCL.raw.SetProvider(new SQLitePCL.SQLite3Provider_e_sqlite3());
     }
 

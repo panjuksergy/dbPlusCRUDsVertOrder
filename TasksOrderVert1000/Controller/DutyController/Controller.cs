@@ -59,4 +59,11 @@ public class Controller
         ValidatePriorityView();
         return -1;
     }
+
+    public int ValidateId(int id)
+    {
+        var result = id > 0 ? id : -404;
+        return result;
+    }
+    
 }
