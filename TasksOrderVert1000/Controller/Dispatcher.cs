@@ -31,17 +31,60 @@ public class Dispatcher
 
     public void UpdateTask()
     {
-        
+        var id = _view.ChooseTasksId();
+        if (_dutyRepository.GetDuty(id) != null)
+        {
+            var newDuty = new Duty()
+            {
+                DutyName = _controller.ValidateNameInput(),
+                Description = _controller.ValidateDescriptionInput(),
+                Priority = _controller.ValidatePriorityView()
+            };
+            _dutyRepository.UpdateDuty(id, newDuty);
+        }
     }
 
     public void DeleteTask()
     {
-        
+        var id = _view.ChooseTasksId();
+        if (_dutyRepository.GetDuty(id) != null)
+        {
+            _dutyRepository.DeleteDuty(id);
+        }
+        else
+        {
+            Console.WriteLine("Task doesnt exist, try again");
+            DeleteTask();
+        }
     }
 
     public void ListAllTasks()
     {
-        
+        var duties = _dutyRepository.GetDuties();
+        foreach (var duty in duties)
+        {
+            _view.DisplayTask(duty);
+        }
+
+        switch (_controller.ValidateListMenu())
+        {
+            case 1:
+                var sorted1 = _controller.SortedByDate(duties);
+                foreach (var duty1 in sorted1)
+                {
+                    _view.DisplayTask(duty1);
+                }
+                break;
+            case 2:
+                var sorted2 = _controller.SortedByPriority(duties);
+                foreach (var duty2 in sorted2)
+                {
+                    _view.DisplayTask(duty2);
+                }
+                break;
+            case 3:
+                break;
+        }
     }
 
     public void DisplayTaskById()
@@ -60,7 +103,7 @@ public class Dispatcher
         else
         {
             Console.WriteLine("Task doesnt exist, try again");
-            return;
+            DisplayTaskById();
         }
     }
 

@@ -62,7 +62,19 @@ public class View
                           $"Task Name - {duty.DutyName}\n" +
                           $"Task Description - {duty.Description}\n" +
                           $"Task Date - {duty.Date}\n" +
-                          $"Task Priority - {duty.Priority}\n//////////////////////////////////////////////co\n");
+                          $"Task Priority - {duty.Priority}\n//////////////////////////////////////////////\n");
+    }
+
+    public int SuggestSorting()
+    {
+        Console.WriteLine("\nU also can sort by date and priority as u wish:\n" +
+                          "1- Sort by Date\n" +
+                          "2- Sort by Priority\n" +
+                          "3- Back to the menu\n");
+        var choosed = Console.ReadLine();
+        int ch;
+        int.TryParse(choosed, out ch);
+        return ch;
     }
     
 }

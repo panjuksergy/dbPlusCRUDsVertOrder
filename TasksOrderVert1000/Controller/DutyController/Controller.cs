@@ -13,12 +13,12 @@ public class Controller
         _dutyRepository = dutyRepository;
     }
 
-    public IEnumerable<Duty> SortedByPriority(List<Duty> inList)
+    public IEnumerable<Duty> SortedByPriority(IEnumerable<Duty> inList)
     {
         return inList.OrderBy(d => d.Priority);
     }
 
-    public IEnumerable<Duty> SortedByDate(List<Duty> inList)
+    public IEnumerable<Duty> SortedByDate(IEnumerable<Duty> inList)
     {
         return inList.OrderBy(d => d.Date);
     }
@@ -66,6 +66,21 @@ public class Controller
     {
         var result = id > 0 ? id : -404;
         return result;
+    }
+
+    public int ValidateListMenu()
+    {
+        int input = _view.SuggestSorting();
+        for (int i = 1; i <= 3; i++)
+        {
+            if (input == i)
+            {
+                return input;
+            }
+        }
+
+        ValidateListMenu();
+        return -1;
     }
     
 }

@@ -18,10 +18,13 @@ public class Program
                         _dispatcher.CreateNewTask();
                         break;
                     case 2:
+                        _dispatcher.UpdateTask();
                         break;
                     case 3:
+                        _dispatcher.DeleteTask();
                         break;
                     case 4:
+                        _dispatcher.ListAllTasks();
                         break;
                     case 5:
                         _dispatcher.DisplayTaskById();
