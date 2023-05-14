@@ -62,7 +62,7 @@ public class View
                           $"Task Name - {duty.DutyName}\n" +
                           $"Task Description - {duty.Description}\n" +
                           $"Task Date - {duty.Date}\n" +
-                          $"Task Priority - {duty.Priority}\n//////////////////////////////////////////////\n");
+                          $"Task Priority - {duty.Priority}\n//////////////////////////////////////////////co\n");
     }
     
 }

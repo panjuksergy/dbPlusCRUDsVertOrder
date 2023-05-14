@@ -52,7 +52,16 @@ public class Dispatcher
             Console.WriteLine("Error Input");
             DisplayTaskById();
         }
-        _view.DisplayTask(_dutyRepository.GetDuty(id));
+        var readDuty = _dutyRepository.GetDuty(id);
+        if (readDuty != null)
+        {
+            _view.DisplayTask(readDuty);
+        }
+        else
+        {
+            Console.WriteLine("Task doesnt exist, try again");
+            return;
+        }
     }
 
     public void MarkTaskDonteById()
